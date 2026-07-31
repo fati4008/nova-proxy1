@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "nova-proxy1",
+  "main": "worker.js",
+  "compatibility_date": "2026-07-30",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    { "binding": "DB","database_id": "e64b09f2-f5d5-413a-95b9-c2bc20f24877","database_name": "nova-proxy" }
+  ],
+  "kv_namespaces": [
+    { "binding": "KV","id": "469c22b2fc6442eb9a948a6c9a36e118" }
+  ],
+  "vars": {
+    "PAGES_URL": "https://nova-panel.github.io"
+  },
+  "workers_dev": true,
+  "preview_urls": true,
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  }
+}
